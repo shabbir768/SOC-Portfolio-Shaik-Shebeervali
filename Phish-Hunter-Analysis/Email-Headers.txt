@@ -1,1 +1,13 @@
+Phish Hunter — Email Header Analysis 
+
+Sender Address: billing-secure@fake-company.com
+Reply-To: support@fake-company-mail.com
+Return-Path Domain: secure-mail.online
+Sender IP Reputation: Malicious (Based on VT/AbuseIPDB)
+Authentication Results:
+    SPF: FAIL (domain mismatch)
+    DKIM: None
+    DMARC: FAIL
+Redirection URL: hxxp://login-update-verify[.]com
+Attachment Behavior: Obfuscated code, downloads payload
 
