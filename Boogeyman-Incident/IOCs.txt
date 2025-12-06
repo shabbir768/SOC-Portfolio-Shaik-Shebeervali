@@ -1,1 +1,9 @@
+Boogeyman — Incident IOCs 
+
+Suspicious File Hash: <malware-hash>
+Malicious Domain: rebrand.ly (short link)
+Attacker IP (Observed): <unknown external source>
+Process Executed: winword.exe → powershell.exe
+Command Pattern: Base64-encoded execution string
+Dropped File: suspicious.exe (user temp path)
 
