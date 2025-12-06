@@ -1,1 +1,15 @@
+# Query 1 — Outbound Data Exfiltration (Network Volume Anomaly)
+index=network_logs sourcetype=firewall_logs
+| stats sum(bytes_out) as total_bytes_out by src_ip dest_ip dest_port
+| where total_bytes_out > <threshold>
+
+# Query 2 — Identify Single Host with High Outbound Traffic
+index=network_logs sourcetype=firewall_logs src_ip="<internal_host>"
+| timechart sum(bytes_out) by dest_ip span=15m
+
+# Query 3 — Top External Destinations by Rare Traffic
+index=network_logs sourcetype=firewall_logs
+| stats count, sum(bytes_out) as data_sent by dest_ip
+| lookup threatintel domain as dest_ip OUTPUT risk_score
+| sort - data_sent
 
